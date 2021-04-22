@@ -24,6 +24,5 @@ class LoginPage(BasePage):
         return InventoryPage(self._driver, self._timeout)
 
     def get_error_message(self) -> str:
-
         #return: Error message
         return self.__error_msg.get_text()
