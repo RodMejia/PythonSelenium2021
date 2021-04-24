@@ -26,6 +26,8 @@ class TestInventoryDetails(TestBase):
         inventory_page.products.reload()
         assert len(inventory_page.products) == 6, 'Inventory len should be 6'
 
+
+    #----------------
     def test_go_back_menu(self):
         '''go back to the catalog using the side menu'''
         login = LoginPage(self.driver)

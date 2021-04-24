@@ -32,6 +32,10 @@ class TestLogin(TestBase):
         assert error_msg is not None, 'Error message should be displayed for invalid login'
         assert error_msg == ERROR_MSG, f'Error message should be {ERROR_MSG}'
 
+
+#-----------------------------------------------------------------
+
+
     def test_logout(self):
         page = LoginPage(self.driver)
         page.open()

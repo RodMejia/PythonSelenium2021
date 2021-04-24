@@ -47,6 +47,7 @@ class TestInventory(TestBase):
             inventory.sort_by(option)
             inventory.get_sort_value() == option.value, f'Default sort should be {option.value}'
 
+    #------------------------------------------------------
 
     def test_btn(self):
         """test button label of a not added item"""
