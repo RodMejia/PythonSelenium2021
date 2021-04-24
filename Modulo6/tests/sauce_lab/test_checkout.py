@@ -15,6 +15,8 @@ _DEF_LNAME = 'mejia'
 
 _DEF_CODE = '28765'
 
+ERROR_MSG = 'Error: First Name is required'
+
 
 class TestChkOut(TestBase):
 
@@ -62,3 +64,21 @@ class TestChkOut(TestBase):
         chk = CheckFormPage(self.driver)
         cart_ret=chk.cancel()
         print(f'{cart_ret.get_label()}')
+
+
+    def test_no_user_data(self):
+        '''test an error message is displayed if no info is entered'''
+        login = LoginPage(self.driver)
+        login.open()
+        inventory_page = login.login(_DEF_USER, _DEF_PASSWORD)
+        first_item = inventory_page.products[0]
+        first_item: InventoryItem
+        first_item.add_to_cart()
+        inventory_page.header.goto_cart()
+        cart = CartPage(self.driver)
+        cart.check_out()
+        chk = CheckFormPage(self.driver)
+        chk.cont_btn()
+        error_msg = chk.get_error_message()
+        assert error_msg is not None, 'Error message should be displayed for invalid login'
+        assert error_msg == ERROR_MSG, f'Error message should be {ERROR_MSG}'

@@ -17,6 +17,7 @@ class CheckFormPage(BasePage):
         self.__zip_code = BasePageElement(ChkOutPageLoc.ZIP_CODE, wait=self._wait)
         self._cancel_btn = BasePageElement(ChkOutPageLoc.CANCEL, wait=self._wait)
         self._continue_btn = BasePageElement(ChkOutPageLoc.CONTINUE, wait=self._wait)
+        self.__error_msg = BasePageElement(ChkOutPageLoc.ERROR_MSG, wait=self._wait)
 
     def get_label(self) -> str:
         """Get page label."""
@@ -30,6 +31,10 @@ class CheckFormPage(BasePage):
     def cancel(self):
         self._cancel_btn.click()
         return CartPage(self._wait._driver, self._wait._timeout)
+
+    def get_error_message(self) -> str:
+        #return: Error message
+        return self.__error_msg.get_text()
 
     def cont_btn(self):
         self._continue_btn.click()

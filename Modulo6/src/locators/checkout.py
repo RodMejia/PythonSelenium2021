@@ -7,3 +7,4 @@ class ChkOutPageLoc:
     ZIP_CODE = (By.ID, 'postal-code')
     CANCEL = (By.XPATH, "//button[contains(@class,'btn_secondary')]")
     CONTINUE = (By.ID, 'continue')
+    ERROR_MSG = (By.XPATH, "//*[@data-test='error']")

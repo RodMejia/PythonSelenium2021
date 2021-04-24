@@ -14,7 +14,7 @@ class CheckOutElements:
         self._zip_code = BasePageElement(ChkOutPageLoc.ZIP_CODE, wait=wait, root=root)
         self._cancel_btn = BasePageElement(ChkOutPageLoc.CANCEL, wait=wait, root=root)
         self._continue_btn = BasePageElement(ChkOutPageLoc.CONTINUE, wait=wait, root=root)
-
+        self._error_msg = BasePageElement(ChkOutPageLoc.ERROR_MSG, wait=wait, root=root)
 
     def open_overview(self):
         self._continue_btn.click()
